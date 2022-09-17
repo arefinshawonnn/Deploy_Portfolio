@@ -1,0 +1,47 @@
+
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>My Works</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            {% if portfolio_cat %}
+            {% for por_cat in portfolio_cat %}
+            <li data-filter=".filter-{{por_cat.name}}">{{por_cat.name}}</li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container">
+
+        {% if portfolio %}
+        {% for port in portfolio %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-{{port.pro_category.name}}">
+          <div class="portfolio-wrap">
+            <img src="{{port.image.url}}" class="img-fluid" alt="Image not found">
+            <div class="portfolio-info">
+              <h4>{{port.title}}</h4>
+              <p>{{port.pro_category.name}}</p>
+              <div class="portfolio-links">
+                <a href="{{port.image.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{port.title}}"><i class="bx bx-plus"></i></a>
+                <a href="{% url 'singleportfolio' prot_id=port.id %}"  ><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {%else%}
+        <li> portfolio blank </li>
+        {% endif %} 
+
+      </div>
+    </div>
+  </section>

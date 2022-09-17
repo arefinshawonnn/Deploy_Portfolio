@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio {% endblock %}
+
+{% block main_contasint %}
+
+<!-- ======= header loaded  ======= -->
+{% include 'include_page/header.html' %}
+
+<!-- ======= About Sectionloaded  ======= -->
+{% include 'include_page/about.html' %}
+
+<!-- End About Section -->
+
+<!-- ======= Resume Section loaded ======= -->
+{% include 'include_page/resume.html' %}
+<!-- End Resume Section -->
+
+<!-- ======= Services Section loaded ======= -->
+{% include 'include_page/service.html' %}
+  <!-- End Services Section -->
+
+  <!-- ======= Portfolio Section loaded  ======= -->
+  {% include 'include_page/portfolio.html' %}
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Contact Section loaded ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact Me</p>
+      </div>
+
+      <div class="row mt-2">
+
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>My Address</h3>
+            {% if aboutme.full_adders%}
+            <p>{{aboutme.full_adders}} </p>
+            {% else%}
+            <p>A108 Adam Street, New York, NY 535022</p>
+            {%endif%}
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-share-alt"></i>
+            <h3>Social Profiles</h3>
+            {% if aboutme%}
+            <div class="social-links">
+              <a  href="{{aboutme.twitter_link}}"  target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a  href="{{aboutme.faceboock_link}}" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="{{aboutme.instagram_link}}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="{{aboutme.skype}}" target="_blank" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="{{aboutme.linkedin}}" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+            {% else%}
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i>social link not provide </a>
+            </div>
+            {%endif%}
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email Me</h3>
+            {% if aboutme.email %}
+            <p>{{aboutme.email}}</p>
+            {%endif%}
+          </div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Call Me</h3>
+           {% if aboutme.phone %}
+            <p>+880{{aboutme.phone}}</p>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+       
+      <form action="{% url 'homepage' %}" method="POST"   role="form"  class="mt-4">
+        {% csrf_token %}
+         <div class="row php-email-form">
+          <div class="col-md-6 form-group">
+            {{form.name}}
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0">
+            {{form.email}}
+          </div>
+        </div>
+        <div class="form-group mt-3 php-email-form">
+          {{form.subject}}
+        </div>
+        <div class="form-group mt-3 php-email-form">
+          {{form.message}}
+        </div>
+
+        <div class="text-center my-3">
+          <input type="submit"  value="Send Message" class="btn btn-primary py-3 px-5">
+        </div> 
+      </form>
+
+    </div>
+  </section>
+ <!-- End Contact Section -->
+
+  <!-- <div class="credits"> -->
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
+    <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div> -->
+
+{% endblock %}

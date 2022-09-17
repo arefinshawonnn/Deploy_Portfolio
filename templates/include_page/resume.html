@@ -1,0 +1,67 @@
+<section id="resume" class="resume">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resume</h2>
+        <p>Check My Resume</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="resume-title">Education</h3>
+           {% if educations %}
+           {% for  education in educations %}
+          <div class="resume-item">
+            <h4> {{education.lavel}}</h4>
+            <h5>{{education.year}}</h5>
+            <p><em>{{education.campus_name}}</em></p>
+            <p>{{education.details}}</p>
+          </div>
+          {%endfor%}
+          {%endif%}
+
+       
+
+        </div>
+
+        <div class="col-lg-6">
+          <h3 class="resume-title">Professional Experience</h3>
+          {% if experiences %}
+          {% for experience in experiences %}
+          <div class="resume-item">
+            <h4> {{experience.description}}</h4>
+            <h5>{{experience.year}}</h5>
+            <p><em> {{experience.location}}</em></p>
+            <p>
+            <ul>
+              {% if experience.lavel_1 %}
+              <li>{{experience.lavel_1}}</li>
+              {% endif %}
+
+              {% if experience.lavel_2 %}
+              <li>{{experience.lavel_2}}</li>
+              {% endif %}
+
+              {% if experience.lavel_3 %}
+              <li>{{experience.lavel_3}}</li>
+              {% endif %}
+
+              {% if experience.lavel_4 %}
+              <li>{{experience.lavel_4}}</li>
+              {% endif %}
+
+              {% if experience.lavel_5 %}
+              <li>{{experience.lavel_5}}</li>
+              {% endif %}
+              
+            </ul>
+            </p>
+          </div>
+          {%endfor%}
+          {%endif%}
+
+        </div>
+      </div>
+
+    </div>
+  </section>
