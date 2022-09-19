@@ -3,7 +3,7 @@ from turtle import Turtle
 from django.db import models
 
 import tkinter
-from tkinder import CASCADE
+
 from django.db.models.deletion import CASCADE
 
 # Create your models here.
