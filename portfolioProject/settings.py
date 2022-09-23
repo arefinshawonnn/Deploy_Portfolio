@@ -12,9 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 
 # for django_heroku 
-import django_heroku
-import dj_database_url
-from decouple import config
+
 
 from pathlib import Path
 
@@ -31,7 +29,7 @@ SECRET_KEY = 'django-insecure-oo(xv23!p+jbj*^o(xo@4$=ko*iuq)fc@jr@46)ipw=qt@q7pb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['https://arefine.herokuapp.com/']
 
 
 # Application definition
@@ -49,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,8 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # heroku server 
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
 
 ROOT_URLCONF = 'portfolioProject.urls'
@@ -150,4 +148,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # heroku sercver 
-django_heroku.settings(locals())
+
