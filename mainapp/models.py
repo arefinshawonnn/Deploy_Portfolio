@@ -1,10 +1,4 @@
-from tkinter.tix import Tree
-from turtle import Turtle
 from django.db import models
-
-import tkinter
-
-from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
